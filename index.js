@@ -6,6 +6,7 @@ const { body, query, validationResult } = require('express-validator');
 require('dotenv').config();
 
 const nlpService = require('./services/mcpService');
+const llmService = require('./services/llmService');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -160,7 +161,7 @@ app.get('/records', async (req, res) => {
   }
 });
 
-// Update chat analysis endpoint to use NLP service
+// Update chat analysis endpoint to use NLP service and LLM service
 app.post('/chat', async (req, res) => {
   try {
     const { message } = req.body;
@@ -175,10 +176,17 @@ app.post('/chat', async (req, res) => {
     // Fetch all records for context
     const records = await Record.find({});
     
-    // Process the query using NLP service
-    const response = await nlpService.processQuery(message, records);
+    // First try NLP service for structured queries
+    const nlpResponse = await nlpService.processQuery(message, records);
     
-    res.json(response);
+    // If NLP service doesn't produce meaningful results, use LLM
+    if (!nlpResponse.data && !nlpResponse.visualization) {
+      const llmResponse = await llmService.getChatResponse(message);
+      res.json(llmResponse);
+      return;
+    }
+
+    res.json(nlpResponse);
   } catch (error) {
     console.error('Chat error:', error);
     res.status(500).json({ 
