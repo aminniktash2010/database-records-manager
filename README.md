@@ -1,22 +1,61 @@
 # Database Records Manager
 
+> This project was created with assistance from Visual Studio Code AI (powered by Claude 3.5 Sonnet), demonstrating the capabilities of AI-assisted development in creating a full-stack application.
+
 A modern web application for managing and querying database records with an AI-powered chat interface. This application provides a user-friendly interface for searching, updating, and analyzing records across different industries and categories.
+
+## 📑 Table of Contents
+- [Architecture](#-architecture)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Dependencies](#-dependencies)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [API Endpoints](#-api-endpoints)
+- [Data Schema](#-data-schema)
+- [Features in Detail](#-features-in-detail)
+- [Security Features](#-security-features)
+- [Docker Configuration](#-docker-configuration)
+- [Performance Considerations](#-performance-considerations)
+- [Model Context Protocol Implementation](#-model-context-protocol-mcp-implementation)
+- [Data Visualization](#-data-visualization)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────┐     ┌─────────────────┐
-│   Frontend      │     │    Backend      │
-│  (HTML/CSS/JS)  │◄────┤  (Node.js/     │
-│                 │     │   Express)      │
-└────────┬────────┘     └────────┬────────┘
-         │                       │
-         │                       │
-         │                       ▼
-         │              ┌─────────────────┐
-         └──────────────┤    MongoDB      │
-                       │   Database       │
-                       └─────────────────┘
+┌─────────────────┐     ┌───────────────────────┐
+│   Frontend      │     │      Backend          │
+│  (HTML/CSS/JS)  │◄────┤    (Node.js/Express)  │
+│   Chart.js      │     │                       │
+└────────┬────────┘     └──────────┬────────────┘
+         │                         │
+         │                         ▼
+         │              ┌───────────────────────┐
+         │              │    NLP Pipeline       │
+         │              │ ┌─────────────────┐   │
+         │              │ │  Tokenization   │   │
+         │              │ │  Classification │   │
+         │              │ │  Intent Match   │   │
+         │              │ └─────────────────┘   │
+         │              └──────────┬────────────┘
+         │                         │
+         │                         ▼
+         │              ┌───────────────────────┐
+         │              │    MCP Layer          │
+         │              │ ┌─────────────────┐   │
+         │              │ │Context Manager  │   │
+         │              │ │Response Gen    │   │
+         │              │ │Query Processor │   │
+         │              │ └─────────────────┘   │
+         │              └──────────┬────────────┘
+         │                         │
+         │                         ▼
+         │              ┌───────────────────────┐
+         └──────────────┤      MongoDB         │
+                       │     Database          │
+                       └───────────────────────┘
 ```
 
 ## 🚀 Features
