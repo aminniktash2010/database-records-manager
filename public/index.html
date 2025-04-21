@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Records Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Database Records Manager</h1>
+        
+        <div class="records-section">
+            <h2>Records</h2>
+            <button onclick="loadAllRecords()">Show All Records</button>
+            <div id="allRecords" class="results"></div>
+        </div>
+
+        <div class="search-section">
+            <h2>Search Records</h2>
+            <div class="search-form">
+                <input type="text" id="searchInput" placeholder="Search by name...">
+                <button onclick="searchRecords()">Search</button>
+            </div>
+            <div id="searchResults" class="results"></div>
+        </div>
+
+        <div class="update-section">
+            <h2>Update Record</h2>
+            <div class="update-form">
+                <input type="number" id="recordId" placeholder="Record ID">
+                <input type="text" id="recordName" placeholder="New Name">
+                <input type="text" id="recordValue" placeholder="New Value">
+                <button onclick="updateRecord()">Update</button>
+            </div>
+            <div id="updateMessage"></div>
+        </div>
+
+        <div class="chat-section">
+            <h2>AI Chat Assistant</h2>
+            <div id="chatContainer" class="chat-container">
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Ask about the data...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+            <div id="visualizationContainer">
+                <canvas id="dataChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

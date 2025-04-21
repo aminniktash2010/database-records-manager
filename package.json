@@ -1,0 +1,20 @@
+{
+  "name": "database-ui-app",
+  "version": "1.0.0",
+  "description": "A web app to update or search database records.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "init-db": "node scripts/initDb.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "chart.js": "^4.4.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "mongoose": "^7.0.0",
+    "natural": "^6.5.0"
+  }
+}
