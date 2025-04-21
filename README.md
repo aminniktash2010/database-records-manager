@@ -355,3 +355,27 @@ function determineVisualization(intent, results) {
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## Running the Project in GitHub Codespaces
+
+This project can be run using GitHub Codespaces. The `.devcontainer` directory has been added to configure the development environment.
+
+### Steps to Open the Project in GitHub Codespaces
+
+1. **Open the Repository in GitHub**
+   Navigate to the repository on GitHub.
+
+2. **Create a New Codespace**
+   Click on the `Code` button and select `Open with Codespaces`. If you don't have any existing Codespaces, create a new one.
+
+3. **Wait for the Environment to Set Up**
+   GitHub Codespaces will automatically set up the development environment based on the configuration in the `.devcontainer` directory.
+
+4. **Start the Application**
+   Once the environment is ready, start the application using the terminal in Codespaces:
+   ```bash
+   docker-compose up --build
+   ```
+
+5. **Access the Application**
+   The application will be available at the forwarded port provided by Codespaces.

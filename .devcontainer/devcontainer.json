@@ -1,0 +1,6 @@
+{
+  "name": "Database Records Manager",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/usr/src/app"
+}
